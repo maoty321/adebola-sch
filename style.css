@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary-color: purple;
+    --primary-color-white: rgb(143, 9, 143);
+    --white: white;
+    --heading-color: rgb(226, 100, 226); 
+    --text-color: rgb(77, 76, 76);
+    --font-family: 
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+.wrapper {
+    max-width: 100%;
+}
+img {
+    display: flex;
+    width: 100%;
+}
+a {
+    text-decoration: none;
+    color: var(--text-color)
+}
+li {
+    list-style: none;
+}
+.nav {
+    position: fixed;
+    isolation: isolate;
+    width: 100%;
+    z-index: 999;
+}
+.nav-header {
+    display: flex;
+    width: 100%;
+    padding: 5px 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.logo{
+    display: flex;
+    width: 50%;
+    align-items: center;
+}
+.logo img {
+    width: 70px;
+}
+.logo span {
+    font-size: 10px;
+}
+.nav-header .menu-btn {
+    font-size: 25px;
+    cursor: pointer;
+}
+.nav-links {
+    position: absolute;
+    top: 64px;
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 4rem;
+    flex-direction: column;
+    gap: 2rem;
+    transform: translateY(-200%);
+    z-index: -1;
+    background-color: var(--primary-color);
+    transition: 0.7s;
+}
+.open {
+    transform: translateY(0);
+}
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.home {
+   z-index: -1;
+   padding-top: 70px;
+   height: 70vh;
+}
+
+.home img {
+    height: 90vh; 
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(48, 47, 47, 0.3)
+    );
+    width: 100%;
+    object-fit: cover;  
+}
+.content-home {
+    position: absolute;
+    top: 40%;
+    width: 80%;
+    left: 10%;
+    color: var(--white);
+    text-align: center;
+}
+.content-home .title-home {
+    font-size: 35px;
+}
+.section {
+    max-width: 100%;
+    padding: 50px 10px;
+}
+.about-us {
+    margin-top: 250px;
+    overflow: hidden;
+    padding-top: 40px;
+}
+.about-box {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary-color);
+    height: auto;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+}
+.header-title {
+    color: var(--primary-color);
+    font-size: 30px;
+}
+.about-image img {
+     width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 400px;
+}
+.about-box-img-d img {
+    object-fit: cover;
+    width: 100vh;
+    
+}
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+.btn:hover {
+    background-color: var(--primary-color-white);
+    opacity: 3;
+    color: white;
+}
+.card {
+    border: none;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+.addmission {
+    text-align: center;
+}
+.addmission-header {
+    font-size: 30px;
+    font-family: 'Poppins';
+    text-align: center;
+    color: var(--primary-color);
+}
+footer {
+    background: rgba(231, 235, 241, 0.801);
+    padding: 10px;
+    bottom: 0;
+}
+footer img {
+    width: 40%;
+}
+footer span {
+    color: var(--primary-color);
+}
+.footer-heading {
+    color: var(--primary-color);
+}
+footer li a {
+    color: var(--text-color);
+}
+@media (width > 1000px) {
+
+    .nav {
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    } 
+    .nav-header {
+        background: transparent;
+        padding: 0;
+        width: 40%;
+        padding-left: 30px;
+    }
+    .nav-header .logo span {
+        color: var(--text-color);
+        font-size: 10px;
+    }
+     .menu-btn {
+        display: none;
+    }
+    /* .nav-header .logo img {
+
+    } */
+
+    .nav-links {
+        position: sticky;
+        width: 100%;
+        background: transparent;
+        transition: none;
+        padding: 0%;
+        display: flex;
+        flex-direction: row;
+        padding: 0 30px;
+        margin-left: 170px;
+    }
+    .nav-links a {
+        color: black;
+        display: block;
+    }
+   
+  .about-img {
+    width: 100%;
+    position: relative;
+    background-color: red;
+    height: 50vh;
+}
+.about-box-img-d {
+    display: block;
+}
+.about-box-img-d img {
+    object-fit: cover;
+    width: 100vh;
+
+}
+.about-box-img-mobile {
+    display: none;
+}
+.about-box {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.section {
+    width: 100%;
+    padding: 30px 40px;
+}
+.addmission {
+    padding: 50px;
+}
+.addmission-body {
+    width: 60%;
+    margin: auto;
+}
+}
