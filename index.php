@@ -1,41 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet"/>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-    
-</head>
+<?php include './includes/header.php'?>
+<link rel="stylesheet" href="./css/style.css">   
 <body class="bg-light">
     <div class="wrapper">
-        <div class="nav">
-            <div class="nav-header">
-                <div class="logo">
-                   <div class="l mt-3">
-                         <img src="img/logo/logo.png" alt="">
-                   </div>
-                   <span>ADEBOLA EXCELLENT COLLEGE OF HEALTH SCIENCES ANDT ECHNOLOGY</span>
-                </div>
-                <div class="menu-btn" id="menu-btn">
-                    <i class="ri-menu-line"></i>
-                </div>
-            </div>
-            
-            <div class="nav-links" id="nav-links">
-                <li><a href="">Home</a></li>
-                <li><a href="">News</a></li>
-                <li><a href="">Department</a></li>
-                <li><a href="">About Us</a></li>
-                <li><a href="">Student Portal</a></li>
-                <li><a href="">Addmission</a></li>
-                <li><a href="">Contact</a></li>
-            </div>
-        </div>
-
-        <div class="home">
+       <?php include './includes/nav.php'?>
+        
+       <div class="home">
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -255,133 +224,14 @@
                 <p class="text-center">
                     Applications are now open for the 2025-2026 academic session at Excellent College of Health Sciences and Technology, 
                     Bode-Osi, Iwo, Osun State.</p>
-                    <a href="" class="btn"> Apply for Addmission</a>
+                    <a href="addmission" class="btn"> Apply for Addmission</a>
             </div>
 
         </section>
-        <footer class="pt-4 pb-2">
-            <div class="container">
-                <div class="row align-items-start">
-                <!-- Logo & About -->
-                <div class="col-md-4 mb-4">
-                    <img src="img/logo/logo.png" alt="Logo" class="footer-logo mb-3">
-                    <p>
-                    <strong class="footer-heading">AECHST</strong> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas error quos in sequi ducimus facilis veniam modi iusto. Nobis.</p>.
-                    </p>
-                </div>
-
-                <!-- Quick Links -->
-                <div class="col-md-2 mb-4">
-                    <p class="text-uppercase mb-3 footer-heading" style="font-size: 20px;">Quick Links</p>
-                    <ul class="list-unstyled" style="line-height: 50px;">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Department</a></li>
-                    <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- Categories -->
-                <div class="col-md-3 mb-4">
-                     <p class="text-uppercase mb-3 footer-heading" style="font-size: 20px;">Useful Links</p>
-                    <ul class="list-unstyled" style="line-height: 50px;">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Department</a></li>
-                    <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="col-md-3 mb-4 footer-heading">
-                     <p class="text-uppercase mb-3" style="font-size: 20px;">Contacts</p>
-                    <ul class="list-unstyled" style="line-height: 50px;">
-                    <li><a href="#">School Location</a></li>
-                    <li><a href="#">School Email</a></li>
-                    <li><a href="#"></a></li>
-                </div>
-                </div>
-                </div>
-                <!-- Bottom Footer -->
-                <div class="text-center w-100 pt-2" style="border-top: 1px solid rgb(218, 214, 214);">
-                <small>&copy; 2025 ADEBOLA EXCELLENT COLLEGE OF HEALTH SCIENCES AND TECHNOLOGY. <span>All rights reserved</span>.</small>
-                </div>
-        </footer>
+        
+        <?php include './includes/footer.php'?>
     </div>
 
-    <!-- script -->
-
-<script src="https://unpkg.com/scrollreveal"></script>
-<script>
-    // about-scroll.js
-
-// Initialize ScrollReveal
-const sr = ScrollReveal({
-  distance: '50px',
-  duration: 1000,
-  delay: 200,
-  reset: true // Set to false if you don’t want animations to repeat
-});
-
-// Reveal About Us Section Elements
-sr.reveal('.about-content', {
-  origin: 'left'
-});
-
-sr.reveal('.about-image', {
-  origin: 'right',
-  delay: 300
-});
-
-sr.reveal('.header-title', {
-  origin: 'top',
-  delay: 450
-});
-sr.reveal('.about-text', {
-  origin: 'bottom',
-  delay: 550
-});
-sr.reveal('.about-us .btn', {
-  origin: 'left',
-  delay: 750
-});
-sr.reveal('.card', {
-  origin: 'left',
-  delay: 150
-});
-sr.reveal('.card-title', {
-  origin: 'bottom',
-  delay: 200
-});
-sr.reveal('.card-text', {
-  origin: 'bottom',
-  delay: 700
-});
-sr.reveal('.addmission-header', {
-  origin: 'top',
-  delay: 250
-});
-sr.reveal('.add-text', {
-  origin: 'left',
-  delay: 400
-});
-sr.reveal('.card .btn', {
-  origin: 'bottom',
-  delay: 900
-});
-sr.reveal('.card .card-footer small', {
-  origin: 'right',
-  delay: 1300
-});
-sr.reveal('.addmission-body', {
-  origin: 'bottom',
-  delay: 500
-});
-
-
-</script>
-<script src="./main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" ></script>
+<?php include './includes/script.php'?>
 </body>
 </html>

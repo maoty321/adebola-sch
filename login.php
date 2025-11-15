@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/login.css">
     <title>Document</title>
 </head>
 <body>
@@ -33,7 +33,7 @@
             </div>
             <div class="box2 col-md-6 col-sm-12">
                 
-                    <div class="w-100">
+                <div class="w-100">
                  <p class="header-text">Sign in to Portal</p>
                </div>
                <div class="form">
@@ -57,7 +57,7 @@
                         <p class="px-2">Show Password</p>
                     </div>
                     <div class="mb-3 float-end mt-3 mb-5" >
-                        <a href="" class="nav-links text-muted" style="text-decoration: none;">Forget Password?</a>
+                        <a href="" class="nav-links text-muted" style="text-decoration: none; font-size: 13px">Forget Password?</a>
                     </div>
                     <div class="mb-3 mt-5">
                         <button class="btn w-100 p-2">Sign in</button>
