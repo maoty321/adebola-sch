@@ -17,16 +17,29 @@ navLinks.addEventListener('click', (e)=> {
 
 
 
+// about-scroll.js
 
-
-
-
-
-
-
-const hamburger = document.getElementById('hamburger');
-// const navLinkss = document.getElementById('navLinks');
-
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+// Initialize ScrollReveal
+const sr = ScrollReveal({
+  distance: '50px',
+  duration: 1000,
+  delay: 200,
+  reset: true // Set to false if you don’t want animations to repeat
 });
+
+// Reveal About Us Section Elements
+sr.reveal('.about-content', {
+  origin: 'left'
+});
+
+sr.reveal('.about-image', {
+  origin: 'right',
+  delay: 300
+});
+
+sr.reveal('.header-title', {
+  origin: 'top',
+  delay: 150
+});
+
+
