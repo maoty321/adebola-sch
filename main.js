@@ -17,6 +17,9 @@ navLinks.addEventListener('click', (e)=> {
 
 
 
+
+
+
 // about-scroll.js
 
 // Initialize ScrollReveal
