@@ -8,24 +8,27 @@
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                    <img src="./img/banner/banner1.jpg" class="d-block w-100" alt="...">
+                    <img src="./img/course/Public-Health-Nursing.jpg" class="d-block w-100" alt="...">
                     <div class="content-home">
-                        <h4 class="title-home">The Best Poly</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odit tempore nulla!</p>
+                        <h4 class="title-home">The Best Poly School of Health & Technology</h4>
+                        <p style="">Empowering students through innovative programs in medicine, health care, and advanced technology, designed for real-world success.</p>
                     </div>
                 </div>
                     <div class="carousel-item">
                         <img src="./img/banner/banner2.jpg" class="d-block w-100" alt="...">
                          <div class="content-home">
-                            <h4 class="title-home">The Best Poly</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odit tempore nulla!</p>
+                            <h4 class="title-home">Polytechnic of Health & Innovation</h4>
+                            <p>Shaping the next generation of leaders in medicine, healthcare, and technology through practical learning and modern education.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="./img/banner/WhatsApp Image 2025-11-12 at 17.49.58_f21df44c.jpg" class="d-block w-100" alt="...">
+                        <img src="./img/banner/b2.jpg" class="d-block w-100" alt="...">
                          <div class="content-home">
-                            <h4 class="title-home">The Best Poly</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore odit tempore nulla!</p>
+                            <h4 class="title-home">Innovative Poly College</h4>
+                            <p>A forward-thinking school focused on health sciences, medical studies, and technology, empowering students to excel in a rapidly evolving world.</p>
+                        <div class="menu-btn" id="menu-btn">
+             <i class="ri-menu-line"></i>
+         </div>
                         </div>
                     </div>
                 </div>
@@ -40,7 +43,7 @@
             </div>
         </div>
 
-        <section class="section about-us py-5 bg-light">
+        <section class="section about-us py-5 bg-light" id="about-us">
             <div class="container">
                 <div class="row gx-4 align-items-center">
                 
@@ -58,7 +61,7 @@
                         The best foundation for this noble textiary institution was laid in 2018 by Mr. Semiu Olanrewaju E. And 
                         was established for business with 20 students and 6 departments. We are always moving great! great! great! .
                     </p>
-                    <button class="btn btn-primary mt-2">Read More</button>
+                    <a  href="about" class="btn btn-primary mt-2">Read More</a>
                     </div>
                 </div>
 
@@ -83,10 +86,10 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card">
                             <div class="img-box">
-                                <img src="./img/banner/banner3.jpg" alt="About us image" class="img-fluid" style="height: 50vh;">
+                                <img src="./img/course/Public-Health-Nursing.jpg" alt="About us image" class="img-fluid" style="height: 40vh;">
                             </div>
                         <div class="card-body">
-                            <p class="card-title text-center">Public Health Nursing</p>
+                            <p class="card-title text-center" style="color:  purple"><b>Public Health Nursing</b></p>
                         </div>
                     </div>
                 </div>
@@ -94,10 +97,10 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card">
                             <div class="img-box">
-                                <img src="./img/banner/banner3.jpg" alt="About us image" class="img-fluid" style="height: 50vh;">
+                                <img src="./img/course/community-health.jpg " alt="About us image" class="img-fluid" style="height: 40vh;">
                             </div>
                         <div class="card-body">
-                            <p class="card-title text-center">Public Health Technology</p>
+                            <p class="card-title text-center" style="color:  purple"><b>Community Health</b></p>
                         </div>
                     </div>
                 </div>
@@ -105,10 +108,10 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card">
                             <div class="img-box">
-                                <img src="./img/banner/banner3.jpg" alt="About us image" class="img-fluid" style="height: 50vh;">
+                                <img src="./img/course/Pharmacy-Technician.jpg" alt="About us image" class="img-fluid" style="height: 40vh;">
                             </div>
                         <div class="card-body">
-                            <p class="card-title text-center">Nutrition and dietetics </p>
+                            <p class="card-title text-center" style="color:  purple"><b> Pharmacy Technician</b></p>
                         </div>
                     </div>
                 </div>
@@ -116,10 +119,10 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card">
                             <div class="img-box">
-                                <img src="./img/banner/banner3.jpg" alt="About us image" class="img-fluid" style="height: 50vh;">
+                                <img src="./img/course/Environmental-Health-Technology.jpg" alt="About us image" class="img-fluid" style="height: 40vh;">
                             </div>
                         <div class="card-body">
-                            <p class="card-title text-center"> Health Education and Technology</p>
+                            <p class="card-title text-center" style="color:  purple"><b> Environmental Health Technology</b></p>
                         </div>
                     </div>
                 </div>
@@ -127,10 +130,10 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card">
                             <div class="img-box">
-                                <img src="./img/banner/banner3.jpg" alt="About us image" class="img-fluid" style="height: 50vh;">
+                                <img src="./img/course/computer-science.jpg" alt="About us image" class="img-fluid" style="height: 40vh;">
                             </div>
                         <div class="card-body">
-                            <p class="card-title text-center">Anesthesia Technology</p>
+                            <p class="card-title text-center" style="color:  purple"><b>Computer Science</b></p>
                         </div>
                     </div>
                 </div>
@@ -138,22 +141,21 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card">
                             <div class="img-box">
-                                <img src="./img/banner/banner3.jpg" alt="About us image" class="img-fluid" style="height: 50vh;">
+                                <img src="./img/course/Orthopedic-cast-Technology.jpg" alt="About us image" class="img-fluid" style="height: 40vh;">
                             </div>
                         <div class="card-body">
-                            <p class="card-title text-center"> Pharmacy Technician</p>
+                            <p class="card-title text-center" style="color:  purple"><b> Orthopedic cast Technology</b></p>
                         </div>
                     </div>
                 </div>
               
-               
             </div>
             <div class="h w-100 text-center mt-5 ">
-                <a href="" class="shadow-sm btn">View All Courses</a>
+                <a href="deparment" class="shadow-sm btn">View All Courses</a>
             </div>
         </section>
 
-        <section class="section news">
+        <!-- <section class="section news">
            <div class="course-title">
                 <p class="header-title text-center">News and Events</p>
                 <p class="text-center" style="color: purple">Recent News</p>
@@ -215,7 +217,7 @@
                 </div>
                 
             </div>
-        </section>
+        </section> -->
 
         <section class="section addmission bg-white">
             <p class="addmission-header">Addmission in Progress</p>
@@ -224,12 +226,13 @@
                 <p class="text-center">
                     Applications are now open for the 2025-2026 academic session at Excellent College of Health Sciences and Technology, 
                     Bode-Osi, Iwo, Osun State.</p>
-                    <a href="addmission" class="btn"> Apply for Addmission</a>
+                    <a href="addmission" target="_blank" rel="noopener noreferrer" class="btn"> Apply for Addmission</a>
             </div>
 
         </section>
         
         <?php include './includes/footer.php'?>
+
     </div>
 
 <?php include './includes/script.php'?>

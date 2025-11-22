@@ -3,7 +3,7 @@
         <div class="row align-items-start">
             <!-- Logo & About -->
             <div class="col-md-4 mb-4">
-                <img src="img/logo/logo.png" alt="Logo" class="footer-logo mb-3">
+                <img src="img/logo/log.jpg" alt="Logo" class="footer-logo mb-3">
                 <p>
                     <strong class="footer-heading">AECHST</strong>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas error quos in sequi ducimus facilis
@@ -23,7 +23,7 @@
             </div>
 
             <!-- Categories -->
-            <div class="col-md-3 mb-4">
+            <div class="col-md-2 mb-4">
                 <p class="text-uppercase mb-3 footer-heading" style="font-size: 20px;">Useful Links</p>
                 <ul class="list-unstyled" style="line-height: 50px;">
                     <li><a href="#">Home</a></li>
@@ -34,11 +34,14 @@
             </div>
 
             <!-- Contact Info -->
-            <div class="col-md-3 mb-4 footer-heading">
+            <div class="col-md-4 mb-4 footer-heading">
                 <p class="text-uppercase mb-3" style="font-size: 20px;">Contacts</p>
                 <ul class="list-unstyled" style="line-height: 50px;">
-                    <li><a href="#">School Location</a></li>
-                    <li><a href="#">School Email</a></li>
+                    <li><a href="tel: 07067010005" style="color: purple"><i class="ri-phone-line"></i> 07067010005</a></li>
+                    <li><a href="mailto: excellentcollegeofhealth@gmail.com" style="color: purple"><i class="ri-mail-line"></i> excellentcollegeofhealth@gmail.com</a></li>
+                    <li><a href="" style="color: purple"><i class="ri-map-pin-line"></i>
+                    Adebola Excellent College of Health Sciences and Technology, Bode-Osi, Iwo, Osun State
+                    </a></li>
                     <li><a href="#"></a></li>
             </div>
         </div>

@@ -1,0 +1,39 @@
+.k {
+    padding-top: 80px;
+}
+.mission {
+    line-height: 30px;
+      font-size: 14px;
+}
+.about {
+    font-size: 14px;
+}
+.about ul li {
+    list-style: lower-alpha;
+    color: var(--text-color);
+    line-height: 30px;
+    font-size: 14px;
+}
+
+.mission ul li {
+    list-style: lower-alpha;
+    color: var(--text-color);
+    
+    /* list-style-type: lower-alpha; */
+}
+.history {
+    font-size: 14px;
+}
+.history img {
+    width: 15%;
+    text-align: center;
+    border-radius: 100%;
+}
+.img-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-titl {
+    color: var(--primary-color);
+}

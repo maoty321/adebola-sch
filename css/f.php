@@ -1,1 +1,0 @@
-<?php include '../img/banner/banner1.jpg'?>

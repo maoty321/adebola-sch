@@ -12,22 +12,22 @@ const sr = ScrollReveal({
 });
 
 // Reveal About Us Section Elements
-sr.reveal('.about-content', {
+sr.reveal('.about-us .about-content', {
   origin: 'left'
 });
 
-sr.reveal('.about-image', {
+sr.reveal('.about-us .about-image', {
   origin: 'right',
   delay: 300
 });
 
-sr.reveal('.header-title', {
+sr.reveal(' .header-title', {
   origin: 'top',
-  delay: 450
+  delay: 500
 });
-sr.reveal('.about-text', {
+sr.reveal('.about-us .about-text', {
   origin: 'bottom',
-  delay: 550
+  delay: 600
 });
 sr.reveal('.about-us .btn', {
   origin: 'left',

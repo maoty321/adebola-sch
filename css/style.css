@@ -48,7 +48,9 @@ li {
     align-items: center;
 }
 .logo img {
-    width: 70px;
+    padding-right: 5px;
+    width: 60px;
+
 }
 .logo span {
     font-size: 10px;
@@ -170,7 +172,7 @@ footer {
     bottom: 0;
 }
 footer img {
-    width: 40%;
+    width: 20%;
 }
 footer span {
     color: var(--primary-color);
@@ -216,6 +218,7 @@ footer li a {
         transition: none;
         padding: 0%;
         display: flex;
+        z-index: 9999;
         flex-direction: row;
         padding: 0 30px;
         margin-left: 170px;

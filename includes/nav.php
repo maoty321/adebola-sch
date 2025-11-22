@@ -2,7 +2,7 @@
      <div class="nav-header">
          <div class="logo">
              <div class="l mt-3">
-                 <img src="img/logo/logo.png" alt="">
+                 <img src="img/logo/log.jpg" alt="">
              </div>
              <span>ADEBOLA EXCELLENT COLLEGE OF HEALTH SCIENCES AND TECHNOLOGY</span>
          </div>
@@ -12,12 +12,12 @@
      </div>
 
      <div class="nav-links" id="nav-links">
-         <li><a href="">Home</a></li>
-         <li><a href="">News</a></li>
-         <li><a href="">Department</a></li>
-         <li><a href="">About Us</a></li>
-         <li><a href="">Student Portal</a></li>
-         <li><a href="">Addmission</a></li>
-         <li><a href="">Contact</a></li>
+         <li><a href="index">Home</a></li>
+         <!-- <li><a href="">News</a></li> -->
+         <li><a href="deparment">Department</a></li>
+         <li><a href="about">About Us</a></li>
+         <li><a href="addmision/candidate-login" target="_blank" rel="noopener noreferrer">Student Portal</a></li>
+         <li><a href="addmission"  target="_blank" rel="noopener noreferrer">Addmission</a></li>
+         <li><a href="contact">Contact</a></li>
      </div>
  </div>

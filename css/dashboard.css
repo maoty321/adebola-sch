@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+    font-family: "Poppins";
+}
+.wrapper {
+    max-width: 100%;
+}
+header {
+    position: fixed;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgb(228, 225, 225);
+    z-index: 999;
+
+}
+header .logo img {
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+header .logo {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .menu-btn {
+    display: none;
+}
+.box-profile span{
+    background-color: purple;
+    padding: 10px;
+    color: white;
+    font-weight: 500;
+     cursor: pointer;
+    border-radius: 100%;
+} 
+.profile {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.profile input {
+    outline: none;
+    border: 2px solid rgb(219, 216, 216);
+    border-radius: 10px;
+    padding: 5px;
+    color:  rgb(219, 216, 216);
+}
+.profile input::placeholder {
+     color: rgb(141, 140, 140);
+     padding-left: 10px;
+}
+.row {
+    padding-top: 70px;
+}
+
+.side-bar {
+    border-right: 1px solid rgb(228, 225, 225);
+    position: fixed;
+    padding-top: 20px;
+    height: 100vh;
+    width: 250px;
+}
+
+.side-bar ul{
+    list-style-type: none;
+}
+.side-bar li {
+    padding-top: 30px;
+}
+.side-bar i {
+    font-size: 16px;
+    padding-right: 10px;
+}
+.side-bar a {
+    display: block;
+    text-decoration: none;
+    padding: 5px 10px;
+    color: black;
+    font-size: 14px;
+}
+.side-bar a.active {
+    background-color: purple;
+    color: white;
+    
+    border-radius: 10px;
+}
+
+.content {
+    margin-left: 250px;
+    width: 81%;
+    padding-top: 20px;
+    padding: 40px;
+}.humb {
+    display: none;
+    position: absolute;
+    top: 82%;
+    right: 3%;
+    
+    width: 15%;
+    background-color: #f8f9fa;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, .2);
+    padding: 10px;
+    color: black;
+    border-radius: 5px;
+}
+.humb li{
+    list-style-type: none;
+    line-height: 35px;
+    font-size: 14px;
+}
+.humb a{
+    color: #6c6c6d;
+    text-decoration: none;
+}
+
+
+
+@media (width < 920px) {
+    header {
+        border: none;  
+        z-index: 9999;
+    }
+    .profile {
+        display: none;
+    }
+   header .menu-btn {
+    display: block;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
+.side-bar {
+    background: #eff1f1;
+    width: 55%;
+    padding-top: 70px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+.show {
+ transform: translateX(0);   
+}
+.content {
+    margin-left: 0px;
+    width: 100%;
+    padding: 20px 10px;
+    padding-top: 50px;
+}
+}

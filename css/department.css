@@ -1,0 +1,48 @@
+.department-introduction {
+    height: 70vh;
+    width: 100%;
+    background: url('../img/banner/banner2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 120px;
+    filter: grayscale(80%);
+    color: white;
+}
+.department-introduction span {
+    font-size: 13px;
+}
+.course {
+    width: 100%;
+    color: var(--text-color);
+    padding-left: 40px;
+}
+.course .course-heading {
+    font-size: 25px;
+    text-align: center;
+    color: var(--primary-color)
+}
+.department-headin {
+    font-size: 15px;
+    font-weight: bold;
+}
+.course ul.listing {
+    list-style-type: circle;
+}
+.course ul li {
+    list-style-type: lower-roman;
+    line-height: 40px;
+}
+.intro-title {
+    font-weight: bolder;
+}
+.intro-title2 {
+    font-size: 15px;
+}
+@media (width > 1000px) { 
+    .department-introduction {
+        height: 40vh;
+        padding-left: 40px;
+        background-position: center;
+        padding-top: 130px;
+    }
+}
