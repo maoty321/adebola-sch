@@ -1,12 +1,12 @@
 <div class="welcome-box">
-    <p class="welcome-header">Good Morning, Muqtar 👋</p>
+    <p class="welcome-header"><?php echo greet_user() . ', '. $student_details['first_name']  ?>  👋</p>
     <p>welcome to Adebola Excellent College of Health Sciences and Technology</p>
 </div>
 
 <div class="intro-box bg-white p-3 mt-3">
     <div class="intro">
-        <p class="name">Muqtar Ajiboye Oyetunji</p>
-        <p class="dep">🎓 SCIENCE | 202590036577</p>
+        <p class="name"><?php echo $student_details['first_name'].' '.$student_details['middlename'].' '.$student_details['surname']. ''?></p>
+        <p class="dep">🎓 <?php echo $student_details['department']?> | <?php echo $student_details['application_number']?></p>
         <p class="dep">🏫 Adebola Excellent College of Health Sciences and Technology</p>
     </div>
     <div class="level">

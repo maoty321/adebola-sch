@@ -30,6 +30,37 @@ function getStudent($student_id) {
     return null;
 }
 
+
+if(isset($_POST['student_login'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $select_user = "SELECT * FROM `student` WHERE email = '$email'";
+    $result = mysqli_query($conn, $select_user);
+    if(mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        if(password_verify($password, $row["password"])) { 
+             $_SESSION['alertMsg'] = true;
+            $_SESSION['text'] = 'Welcome Back'.$row['first_name'];
+            $_SESSION['title'] = 'Login account';
+            $_SESSION['icon'] = 'success';
+            $_SESSION['location'] = 'dashboard';
+        } else { 
+            $_SESSION['alertMsg'] = true;
+            $_SESSION['text'] = 'Invalid login Credentials';
+            $_SESSION['title'] = 'Login account';
+            $_SESSION['icon'] = 'error';
+                $_SESSION['location'] = 'candidate-login';
+        }
+    } else { 
+        $_SESSION['alertMsg'] = true;
+        $_SESSION['text'] = 'Invalid login Credentials';
+        $_SESSION['title'] = 'Login account';
+        $_SESSION['icon'] = 'error';
+        $_SESSION['location'] = 'candidate-login';
+    }
+}
+
 if(isset($_POST['register_student_admin'])) {
     $surname = $_POST['surname'];
     $firstname = $_POST['firstname'];
@@ -42,8 +73,16 @@ if(isset($_POST['register_student_admin'])) {
     $password = $letters . $code;
     $hashpassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $insert_student = "INSERT INTO student(`surname`, `first_name`, `middlename`, `application_number`, `email`)
-    VALUES('$surname', '$firstname', '$middlename', '$matric_number', '$email')";
+    $check_student = mysqli_query($conn, "SELECT * FROM `student` WHERE email = '$email' OR application_number = '$matric_number'");
+    if(mysqli_num_rows($check_student) > 0) {
+                $_SESSION['alertMsg'] = true;
+                $_SESSION['text'] = 'Student Already have an account';
+                $_SESSION['title'] = 'Account creation';
+                $_SESSION['icon'] = 'error';
+                $_SESSION['location'] = 'student';
+    }  else {
+    $insert_student = "INSERT INTO student(`surname`, `first_name`, `middlename`, `application_number`, `email`, `password`)
+    VALUES('$surname', '$firstname', '$middlename', '$matric_number', '$email', '$hashpassword')";
     if(mysqli_query($conn, $insert_student)) {
            try {
     
@@ -58,7 +97,7 @@ if(isset($_POST['register_student_admin'])) {
             $mail->Port = 465;
 
             $mail->setFrom('info@aecoht.com', 'ADEBOLA EXCELLENT COLLEGE OF HEALTH SCIENCES AND TECHNOLOGY');
-            $mail->addAddress('maoty805@gmail.com', 'Muqtar');
+            $mail->addAddress($email, 'Muqtar');
             $mail->isHTML(true);
             $mail->Subject = 'Login Credentials';
             $mail->Body    = '
@@ -121,7 +160,7 @@ if(isset($_POST['register_student_admin'])) {
                         <div class="message">
                             <h5>Login Credentials:</h5>
                             <ul>
-                                <li><strong>Username:</strong>'. $matric_number .'</li>
+                                <li><strong>Email:</strong>'. $email .'</li>
                                 <li><strong>Password:</strong>'. $password .' <li>
                             </ul>
                         </div>
@@ -147,4 +186,4 @@ if(isset($_POST['register_student_admin'])) {
                 echo 'err'. $e->getMessage();
             }
     }
-}
+}}

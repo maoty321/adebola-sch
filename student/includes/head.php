@@ -1,3 +1,4 @@
+<?php include './student-script.php'?>
 <!DOCTYPE html>
 <html lang="en">
 
