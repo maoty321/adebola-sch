@@ -16,7 +16,7 @@
          <!-- <li><a href="">News</a></li> -->
          <li><a href="deparment">Department</a></li>
          <li><a href="about">About Us</a></li>
-         <li><a href="addmision/candidate-login" target="_blank" rel="noopener noreferrer">Student Portal</a></li>
+         <li><a href="student/candidate-login" target="_blank" rel="noopener noreferrer">Student Portal</a></li>
          <li><a href="addmission"  target="_blank" rel="noopener noreferrer">Addmission</a></li>
          <li><a href="contact">Contact</a></li>
      </div>

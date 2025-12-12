@@ -3,11 +3,20 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 include ("../dbconnect.php");
+
+if(empty($_SESSION["admin_user_id"]) || empty($_SESSION["admin_fcaf"])){
+    header("location: candidate-login");
+    exit();
+}
+
+$admin_id = $_SESSION["admin_user_id"];
+$admin_details = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM `admin_school` WHERE admin_id = $admin_id"));
+
 function getAllStudent() {
     global $conn;
 
     $get_all_student =  [];
-    $student_query = mysqli_query($conn,"SELECT * from `student`");
+    $student_query = mysqli_query($conn,"SELECT * from `student` ORDER BY `student_id` DESC");
     if(mysqli_num_rows($student_query) > 0) { 
        while($row = mysqli_fetch_array($student_query)) { 
             $get_all_student[] = $row;
@@ -17,6 +26,28 @@ function getAllStudent() {
     return $get_all_student;
 }
 
+function getStudent_biodata($student_id) {
+    global $conn;
+    $get_all_student = [];
+    $student_id = (int)$student_id;
+    $student_biodata = (mysqli_query($conn,"SELECT * FROM `student_biodata` WHERE student_id = $student_id"));
+    if(mysqli_num_rows($student_biodata)) {
+        while($row = mysqli_fetch_array($student_biodata)) {
+            $get_all_student[] = $row;  
+        }
+        return $get_all_student;
+    } else {
+        return $get_all_student;
+    }
+}
+
+if(isset($_GET['delte_student'])) {
+    $student_id = $_GET['delte_student'];
+    $delete_student = "DELETE FROM `student` WHERE `student_id` = $student_id";
+    if(mysqli_query($conn, $delete_student)) {
+        echo "<script>location.replace('student')</script>";
+    }
+}
 function getStudent($student_id) { 
     global $conn;
     $student_id = (int)$student_id;
@@ -30,34 +61,48 @@ function getStudent($student_id) {
     return null;
 }
 
+function getAllDepartments() {
+    global $conn;
+    $select_department = mysqli_query($conn, "SELECT * FROM `department`");
+    $departments = [];
+    while ($row = mysqli_fetch_assoc($select_department)) { 
+        $departments[] = $row;
+    }
+    return $departments;
+}
 
-if(isset($_POST['student_login'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+function greet_user() {
+    $hour = (int)date('H'); // Get current hour (0-23)
 
-    $select_user = "SELECT * FROM `student` WHERE email = '$email'";
-    $result = mysqli_query($conn, $select_user);
-    if(mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        if(password_verify($password, $row["password"])) { 
-             $_SESSION['alertMsg'] = true;
-            $_SESSION['text'] = 'Welcome Back'.$row['first_name'];
-            $_SESSION['title'] = 'Login account';
-            $_SESSION['icon'] = 'success';
-            $_SESSION['location'] = 'dashboard';
-        } else { 
-            $_SESSION['alertMsg'] = true;
-            $_SESSION['text'] = 'Invalid login Credentials';
-            $_SESSION['title'] = 'Login account';
-            $_SESSION['icon'] = 'error';
-                $_SESSION['location'] = 'candidate-login';
-        }
-    } else { 
+    if ($hour >= 0 && $hour < 12) {
+        return 'Good Morning';
+    } elseif ($hour >= 12 && $hour < 17) {
+        return 'Good Afternoon';
+    } elseif ($hour >= 17 && $hour < 24) {
+        return 'Good Evening';
+    } else {
+        return 'Good Evening';
+    }
+}
+
+if(isset($_POST['edit_student_admin'])) {
+    $surname = $_POST['surname'];
+    $firstname = $_POST['firstname'];
+    $middlename = $_POST['middlename'];
+    $matric_number = $_POST['matric_number'];
+    $department = $_POST['department'];
+    $level_type = $_POST['level_type'];
+    $student_id = $_POST['student_id'];
+
+    $update = "UPDATE `student` SET `first_name`='$firstname',`surname`='$surname',
+    `middlename`='$middlename', `application_number`='$matric_number',
+    `department`='$department',`level_type`='$level_type' WHERE `student_id`= $student_id";
+    if(mysqli_query($conn, $update)) {
         $_SESSION['alertMsg'] = true;
-        $_SESSION['text'] = 'Invalid login Credentials';
-        $_SESSION['title'] = 'Login account';
-        $_SESSION['icon'] = 'error';
-        $_SESSION['location'] = 'candidate-login';
+        $_SESSION['text'] = 'Student bio-data have been updated';
+        $_SESSION['title'] = 'Update Student Data';
+        $_SESSION['icon'] = 'success';
+        $_SESSION['location'] = 'student';
     }
 }
 
@@ -67,6 +112,9 @@ if(isset($_POST['register_student_admin'])) {
     $middlename = $_POST['middlename'];
     $matric_number = $_POST['matric_number'];
     $email = $_POST['email'];
+    $department = $_POST['department'];
+    $level_type = $_POST['level_type'];
+    $level = $_POST['level'];
     
     $letters = substr(str_shuffle('abcdefghijklmnopqrstuvwxyz'), 0, 5);
     $code  = rand(100, 999);
@@ -81,12 +129,12 @@ if(isset($_POST['register_student_admin'])) {
                 $_SESSION['icon'] = 'error';
                 $_SESSION['location'] = 'student';
     }  else {
-    $insert_student = "INSERT INTO student(`surname`, `first_name`, `middlename`, `application_number`, `email`, `password`)
-    VALUES('$surname', '$firstname', '$middlename', '$matric_number', '$email', '$hashpassword')";
+    $insert_student = "INSERT INTO student(`surname`, `first_name`, `middlename`, `application_number`, `email`, `level`, `role`, `password`, `department`, `level_type`, `super_view`)
+    VALUES('$surname', '$firstname', '$middlename', '$matric_number', '$email', '$level', 'student', '$hashpassword', '$department', '$level_type', '$password')";
     if(mysqli_query($conn, $insert_student)) {
            try {
     
-        $mail = new PHPMailer(true); 
+            $mail = new PHPMailer(true); 
             //Server settings
             $mail->isSMTP();
             $mail->Host = 'smtp.hostinger.com';

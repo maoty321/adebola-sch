@@ -47,7 +47,7 @@
                         <a href="" class="btn">Confirm your payment</a>
                     </div>
                     <div class="button">
-                        <a href="addmision/candidate-login" class="btn">login</a>
+                        <a href="student/candidate-login" class="btn">login</a>
                     </div>
                 </div>
             </div>

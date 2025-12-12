@@ -13,7 +13,7 @@
 
         <section class="section course">
             <div class="l w-100 bg-red">
-                <p class="course-heading pt-4">List of Department & Courses Offered</p>
+                <p class="course-heading pt-2">List of Department & Courses Offered</p>
             </div>
 
             <p>

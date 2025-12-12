@@ -11,7 +11,7 @@ if(isset($_POST['student_login'])) {
         if(password_verify($password, $row["password"])) { 
             $_SESSION['student_id'] = $row["student_id"];
              $_SESSION['alertMsg'] = true;
-            $_SESSION['text'] = 'Welcome Back'.$row['first_name'];
+            $_SESSION['text'] = 'Welcome Back '.$row['first_name'];
             $_SESSION['title'] = 'Login account';
             $_SESSION['icon'] = 'success';
             $_SESSION['location'] = 'dashboard';
@@ -62,7 +62,7 @@ if(isset($_POST['student_login'])) {
                     </div>
 
                     <div class="mb-3">
-                        <input type="text" name="password" placeholder="Enter your Password" id="" class="form-control">
+                        <input type="password" name="password" placeholder="Enter your Password" id="" class="form-control">
                     </div>
 
                     <div class="mb-3">

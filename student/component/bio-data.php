@@ -1,5 +1,5 @@
 <?php
-if($student_biodata["status"] == 'final_submit'){ 
+if (($student_biodata['status'] ?? null) === "final_submit") {
     header('location: dashboard');
     exit();
 }
@@ -129,13 +129,15 @@ textarea {
         <div class="box-nav bg-light col-md-3 h-25">
             <li class=""><a href="bio-data" class="<?= ($current_page == 'bio-data') ? 'active' : '' ?>"><span>1.
                     </span>Personal Details</a></li>
+            <li class=""><a href="bio-data?add_passport" class="<?= ($current_page == 'bio-data?add_passport') ? 'active' : '' ?>"><span>2.
+                    </span>Attach Passport</a></li>
             <li class=""><a href="bio-data?olevel"
-                    class="<?= ($current_page == 'bio-data?olevel') ? 'active' : '' ?>"><span>2. </span>Olevel</a></li>
+                    class="<?= ($current_page == 'bio-data?olevel') ? 'active' : '' ?>"><span>3. </span>Olevel</a></li>
             <li class=""><a href="bio-data?jamb_hnd"
-                    class="<?= ($current_page == 'bio-data?jamb_hnd') ? 'active' : '' ?>"><span>3. </span>Jamb / HND
+                    class="<?= ($current_page == 'bio-data?jamb_hnd') ? 'active' : '' ?>"><span>4. </span>Jamb / HND
                     Details</a></li>
             <li class=""><a href="bio-data?review_bio"
-                    class="<?= ($current_page == 'bio-data?review_bio') ? 'active' : '' ?>"><span>4. </span>Bio Data
+                    class="<?= ($current_page == 'bio-data?review_bio') ? 'active' : '' ?>"><span>5. </span>Bio Data
                     Review</a></li>
         </div>
 
@@ -149,15 +151,15 @@ textarea {
                 $examination_olevel = examination_olevel();
                 if(empty($examination_olevel)) { 
             ?>
-            <form action="" method="post">
+            <form action="" method="post" autocomplete="off">
                 <div class="nn row g-3">
                     <div class="col-lg-4 col-sm-12">
                         <label for="">O`Level Reg Number</label>
-                        <input type="text" name="olevel_reg" id="" class="form-control">
+                        <input type="text" name="olevel_reg" id="" class="form-control" required>
                     </div>
                     <div class="col-lg-4 col-sm-12">
                         <label for="">O`Level Type</label>
-                        <select name="olevel_type" id="" class="form-select">
+                        <select name="olevel_type" id="" class="form-select" required>
                             <option value="">--select--</option>
                             <option value="WAEC">WAEC</option>
                             <option value="NECO">NECO</option>
@@ -168,7 +170,8 @@ textarea {
                     </div>
                     <div class="col-lg-4 col-sm-12">
                         <label for="">O`Level Year</label>
-                        <input type="text" name="olevel_year" id="" placeholder="1990" class="form-control">
+                        <input type="number" name="olevel_year" id="" placeholder="E.g (1990)" class="form-control"
+                            required>
                     </div>
                 </div> <br>
                 <div class="mb-3 float-end">
@@ -192,11 +195,12 @@ textarea {
             <?php
                     foreach($examination_olevel as $olevel_detail) { 
             ?>
+
             <div class="olevel-box mt-4">
                 <div class="btn-olevel-add w-100 d-flex justify-content-end my-4" style="">
                     <button type="button" class="btn" data-bs-toggle="modal"
                         data-bs-target="#exampleModal<?= $olevel_detail['olevel_id'] ?>">Add
-                        Result</button>
+                        Subject <i class="ri-add-circle-line"></i></button>
                 </div>
 
                 <div class="modal fade" id="exampleModal<?= $olevel_detail['olevel_id'] ?>" tabindex="-1"
@@ -250,6 +254,8 @@ textarea {
                         </div>
                     </div>
                 </div>
+
+
                 <div class="nn row g-3">
                     <div class="col-lg-4 col-sm-12">
                         <label for="">O`Level Reg Number</label>
@@ -267,6 +273,65 @@ textarea {
                             class="form-control" disabled>
                     </div>
                 </div>
+                <div class="nn float-end p-2">
+                    <i class="ri-edit-line mx-4 editsubject btn text-white" data-bs-toggle="modal"
+                        data-bs-target="#olevel_edit_details<?= $olevel_detail['olevel_id']?>"
+                        style="cursor:pointer; font-size: 18px; background-color: blue;" title="Edit"></i>
+
+                    <a href="student-script?delete_olevel_details=<?= $olevel_detail['olevel_id']?>"
+                        style="text-decoration: none; background-color: red; font-size: 18px;" class="btn text-white"><i
+                            class="ri-delete-bin-line" style="cursor:pointer;" title="Delete"></i></a>
+                </div>
+
+                <!-- Olevel Modal details edit -->
+                <div class="modal fade" id="olevel_edit_details<?= $olevel_detail['olevel_id']?>" tabindex="-1"
+                    aria-labelledby="olevel_edit_details" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Olevel Details</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" method="post">
+                                    <div class="mb-3">
+                                        <input type="hidden" name="olevel_id" value="<?= $olevel_detail['olevel_id']?>">
+                                        <label for="">O`Level Reg Number</label>
+                                        <input type="text" name="olevel_reg" value="<?= $olevel_detail['olevel_reg']?>"
+                                            id="" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">O`Level Type</label>
+                                        <select name="olevel_type" id="" class="form-select" required>
+                                            <option value="">--select--</option>
+                                            <option value="WAEC">WAEC</option>
+                                            <option value="NECO">NECO</option>
+                                            <option value="WAEC GCE">WAEC GCE</option>
+                                            <option value="NECO GCE">NECO GCE</option>
+                                            <option value="NABTEB">NABTEB</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">O`Level Year</label>
+                                        <input type="text" name="olevel_year"
+                                            value="<?= $olevel_detail['olevel_year'] ?>" id="" placeholder="1990"
+                                            class="form-control">
+                                    </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn b" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn " name="edit_olevel_detail">Save
+                                    changes</button></form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+
+                <br> <br>
+
                 <?php 
                 $fetch_results  = fetch_result($olevel_detail['olevel_id']);
                 if(empty($fetch_results)) { 
@@ -276,35 +341,107 @@ textarea {
                 <table class="table mt-4">
                     <thead>
                         <tr>
+                            <th>S?N</th>
                             <th>Subject</th>
                             <th>Grade</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <?php
+                    $a = 1;
                      foreach($fetch_results as $result) {
             ?>
                     <tbody>
                         <tr>
+                            <td><?= $a++ ?></td>
                             <td><?= $result['subject']?></td>
                             <td><?= $result['grade']?></td>
                             <td>
-                                <i class="ri-edit-line px-3" style="cursor:pointer; color:blue;" title="Edit"></i>
-                                <i class="ri-delete-bin-line" style="cursor:pointer; color:red;" title="Delete"></i>
+                                <i class="ri-edit-line px-3 editsubject" style="cursor:pointer;  color:blue;"
+                                    data-bs-toggle="modal" data-bs-target="#editsubject<?= $result['result_id']?>"
+                                    title="Edit"></i>
+                                <a href="student-script?delete_olevel=<?php echo $result['result_id']?>"
+                                    style="text-decoration: none"><i class="ri-delete-bin-line"
+                                        style="cursor:pointer; color:red;" title="Delete"></i></a>
                             </td>
 
+
+
+
+
+                            <!-- edit subject -->
+                            <div class="modal fade" id="editsubject<?= $result['result_id']?>" tabindex="-1"
+                                aria-labelledby="editsubject" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="editsubject">Edit O`level subject</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="modal-body">
+                                                <form action="" method="post">
+                                                    <input type="hidden" name="result_id"
+                                                        value="<?php echo $result['result_id']?>" id="">
+                                                    <div class="mb-3">
+                                                        <label for="">Subject</label>
+                                                        <select name="subject" class="form-select" id="" disabled>
+                                                            <option value="<?php echo $result['subject']?>">
+                                                                <?php echo $result['subject']?></option>
+                                                        </select>
+                                                        <p class="small text-danger">You want to Edit subject ?
+                                                            Please remove the subject from the table and re-add it with
+                                                            the correct details. </p>
+                                                    </div>
+                                                    <div class="mb-3">
+
+                                                        <label for="">Grade</label>
+                                                        <select name="grade" class="form-select" id="" required>
+                                                            <option value=""><?= $result['grade']?></option>
+                                                            <option value="A1">A1</option>
+                                                            <option value="B2">B2</option>
+                                                            <option value="B3">B3</option>
+                                                            <option value="C4">C4</option>
+                                                            <option value="C5">C5</option>
+                                                            <option value="C6">C6</option>
+                                                            <option value="E8">E8</option>
+                                                            <option value="F9">F9</option>
+                                                        </select>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary"
+                                                name="edit_olevel_details">Save changes</button></form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </tr>
                     </tbody>
+
 
                     <?php
                 } ?>
                 </table><?php }
             ?>
             </div>
+
             <?php
-                }}
+                }?>
+            <br><br>
+            <a href="bio-data?jamb_hnd" style="color: white" class="btn red float-end" style="font-size: 20px">Save &
+                Continue</a>
+            <?php }
             ?>
+
         </div>
+
         <?php
         } else if(isset($_GET["jamb_hnd"])) {
         ?>
@@ -312,17 +449,19 @@ textarea {
             <h5>jamb or Hnd Details</h5>
             <hr>
 
-            <?php if($student_details["level_type"] === "Nd") { ?>
+            <?php if($student_details["level_type"] === "ND") { ?>
             <marquee behavior="" direction="">
                 <p class="text-danger" style="font-size: 20px;"><strong>NOTE: </strong>
-                    If you dont have jamb details press save and continue for Nd/HND student
+                    If you dont have jamb details press Skip and continue for Nd/HND student
                 </p>
             </marquee>
 
             <form action="" method="post">
                 <div class="mb-3">
                     <label>Jamb Registration Number</label>
-                    <input type="text" name="jamb_reg" value="<?= $student_jamb['jamb_reg']?>" class="form-control">
+                    <input type="text" name="jamb_reg"
+                        value="<?php echo !empty($student_jamb['jamb_reg']) ? $student_jamb['jamb_reg'] : ''; ?>"
+                        class="form-control" required>
                 </div>
 
                 <div class="nn row g-3">
@@ -330,7 +469,7 @@ textarea {
                         <div class="nn row g-3">
                             <div class="col-md-7">
                                 <label for="">Subject 1</label>
-                                <select name="subject_1" id="" class="form-select">
+                                <select name="subject_1" id="" class="form-select" required>
                                     <option value="">--select--</option>
                                     <?php 
                                         foreach($combined_subjects as $subject) {
@@ -341,7 +480,7 @@ textarea {
                             </div>
                             <div class="col-md-4">
                                 <label for="">Score 1</label>
-                                <input type="number" class="form-control" name="score_1" id="">
+                                <input type="number" class="form-control" name="score_1" id="score_1" required>
                             </div>
                         </div>
                     </div>
@@ -349,7 +488,7 @@ textarea {
                         <div class="nn row g-3">
                             <div class="col-md-7">
                                 <label for="">Subject 2</label>
-                                <select name="subject_2" id="" class="form-select">
+                                <select name="subject_2" id="" class="form-select" required>
                                     <option value="">--select--</option>
                                     <?php 
                                         foreach($combined_subjects as $subject) {
@@ -360,7 +499,7 @@ textarea {
                             </div>
                             <div class="col-md-4">
                                 <label for="">Score 2</label>
-                                <input type="number" class="form-control" name="score_2" id="">
+                                <input type="number" class="form-control" name="score_2" id="score_2" required>
                             </div>
                         </div>
                     </div>
@@ -371,7 +510,7 @@ textarea {
                         <div class="nn row g-3 ">
                             <div class="col-md-7">
                                 <label for="">Subject 3</label>
-                                <select name="subject_3" id="" class="form-select">
+                                <select name="subject_3" id="" class="form-select" required>
                                     <option value="">--select--</option>
                                     <?php 
                                         foreach($combined_subjects as $subject) {
@@ -382,7 +521,7 @@ textarea {
                             </div>
                             <div class="col-md-4">
                                 <label for="">Score 3</label>
-                                <input type="number" class="form-control" name="score_3" id="">
+                                <input type="number" class="form-control" name="score_3" id="score_3" required>
                             </div>
                         </div>
                     </div>
@@ -390,7 +529,7 @@ textarea {
                         <div class="nn row g-3">
                             <div class="col-md-7">
                                 <label for="">Subject 4</label>
-                                <select name="subject_4" id="" class="form-select">
+                                <select name="subject_4" id="" class="form-select" required>
                                     <option value="">--select--</option>
                                     <?php 
                                         foreach($combined_subjects as $subject) {
@@ -401,17 +540,31 @@ textarea {
                             </div>
                             <div class="col-md-4">
                                 <label for="">Score 4</label>
-                                <input type="number" class="form-control" name="score_4" id="">
+                                <input type="number" class="form-control" name="score_4" id="score_4" required>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="mb-3 float-end mt-3">
+                <div class="mb-3 float-end mt-3 pb-5">
                     <input type="submit" name="upload_jamb_details" value="Save and Continue" style="color: white">
                 </div>
             </form>
-            <?php } ?>
+            <div class="mb-3 mt-5">
+                <strong style="font-size: 17px" ; class="">You Dont have Jamb Details</strong> <br> <br>
+
+                <a href="bio-data?review_bio" style="color: white" class="btn red" style="font-size: 20px">SKip and
+                    Countinue</a>
+            </div>
+
+            <?php } else {
+            ?>
+            <h4>Hnd Student</h4>
+            <p>If you are a Hnd Student`s Fresher when coming to school come along with your Neccessary File</p> <br>
+            <a href="bio-data?review_bio" style="color: white" class="btn red float-end" style="font-size: 20px">Skip &
+                Continue</a>
+            <?php
+            } ?>
         </div>
 
         <?php
@@ -482,8 +635,9 @@ textarea {
 
             <?php 
             $examination_olevel = examination_olevel();
-            foreach($examination_olevel as $olevel){ ?>
-            <h6>Exam Seat <?= $olevel['olevel_id'] ?></h6>
+            $a = 1;
+            foreach($examination_olevel as $olevel ){ ?>
+            <h6>Exam Seat <?= $a++ ?></h6>
             <table class="table table-bordered">
                 <tr>
                     <td>Reg Number</td>
@@ -521,33 +675,48 @@ textarea {
             <?php } ?>
 
             <!-- JAMB / HND INFO -->
+            <?php 
+                if(!empty($student_jamb['jamb_reg'])) {
+            ?>
             <h6 class="mt-4"><strong>JAMB / HND Details</strong></h6>
             <table class="table table-bordered">
+                <?php 
+                    $score_1 = (int)($student_jamb['score_1'] ?? 0);
+                    $score_2 = (int)($student_jamb['score_2'] ?? 0);
+                    $score_3 = (int)($student_jamb['score_3'] ?? 0);
+                    $score_4 = (int)($student_jamb['score_4'] ?? 0);
+                    ?>
                 <tr>
                     <td>Jamb Registration No.</td>
                     <td><?= $student_jamb['jamb_reg'] ?? 'N/A' ?></td>
                 </tr>
                 <tr>
-                    <td><?= $student_jamb['subject_1']?></td>
-                    <td><?= $student_jamb['score_1'] ?? 'N/A' ?></td>
+                    <td><?= $student_jamb['subject_1'] ?? ''?></td>
+                    <td><?= $score_1 ?></td>
                 </tr>
                 <tr>
                     <td><?= $student_jamb['subject_2']?></td>
-                    <td><?= $student_jamb['score_2'] ?? 'N/A' ?></td>
+                    <td><?= $score_2 ?></td>
                 </tr>
                 <tr>
-                    <td><?= $student_jamb['subject_3']?></td>
-                    <td><?= $student_jamb['score_3'] ?? 'N/A' ?></td>
+                    <td><?= $student_jamb['subject_3'] ?? ''?></td>
+                    <td><?= $score_3 ?></td>
                 </tr>
                 <tr>
-                    <td><?= $student_jamb['subject_4']?></td>
-                    <td><?= $student_jamb['score_4'] ?? 'N/A' ?></td>
+                    <td><?= $student_jamb['subject_4'] ?? ''?> </td>
+                    <td><?= $score_4?></td>
                 </tr>
                 <tr>
                     <td><b>Total Score</b></td>
-                    <td><?= $student_jamb['score_1'] + $student_jamb['score_2'] + $student_jamb['score_3']+$student_jamb['score_4'] ?? 'N/A' ?>
+                    <td>
+
+                        <?= $score_1 + $score_2 + $score_3 + $score_4 ?>
+
                     </td>
                 </tr>
+                <?php } else {
+                    echo "";
+                }?>
             </table>
 
             <!-- NEXT OF KIN -->
@@ -571,11 +740,13 @@ textarea {
                 </tr>
             </table>
 
-          
+
             <!-- SUBMIT BUTTON -->
             <div class="mt-4">
                 <form method="post">
-                      <p style="font-size: 15px;" class="text-primary"><input type="checkbox" name="" id="" required> <strong>I Agree that all information provide is correct</strong></p>
+                    <p style="font-size: 15px;" class="text-primary"><input type="checkbox" name="" id="" required>
+                        <strong>I Agree that all information provide is correct</strong>
+                    </p>
                     <div class="mb-3 text-end">
                         <button type="submit" class="btn" name="final_submit">Submit Application</button>
                     </div>
@@ -584,12 +755,49 @@ textarea {
         </div>
 
         <?php
+            } else if(isset($_GET['add_passport'])) {
+        ?>
+        <div class="box-contentss col-md-9  m-auto p-3">
+            <h5>Add Passport</h5>
+            <hr>
+            <span><strong class="text-danger">NOTE: </strong> Add your Passport with red background and once it add it
+                cant be update again</span>
+            <div class="row nn mt-4">
+                <div class="col-md-6 col-sm-6 mt-3">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="" class="text-muted" style="font-size: 14px;">Attach Passport</label>
+                            <input type="file" name="passport" class="form-control" id="" required>
+                            <p class="text-danger" style="font-size: 14px;"><?php echo $passport_err?></p>
+                        </div>
+                        <div class="mb-3">
+                            <input type="submit" value="Upload Passport" style="color: white" name="add_passport" class="btn red">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6 h-50">
+                    <div class="dd borderer" style="height: ;">
+                        <div class="k" style="">
+                           <?php 
+                                if(!empty($student_details['passport'])) {
+                            ?>
+                                 <img src="<?php echo $student_details['passport']?>" alt="" style="width: 90%; height: 30vh;">
+                            <?php
+                                } 
+                           ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <?php
             } else {
         ?>
         <div class="box-contentss col-md-9  m-auto p-3">
             <h5>Personal Info</h5>
             <hr>
-            <form action="" method="post">
+            <form action="" method="post" autocomplete="off">
                 <div class="nn row gy-3">
                     <div class="col-md-6 col-sm-12">
                         <label for="">First Name</label>
@@ -623,8 +831,8 @@ textarea {
                 <div class="row gy-3 mt-2 nn">
                     <div class="col-md-6 col-sm-12">
                         <label for="">National Identity Number(NIN)</label>
-                        <input type="text" name="nin" value="<?= $student_biodata['nin'] ?? '' ?>" class="form-control"
-                            required>
+                        <input type="text" name="nin" value="<?= $student_biodata['nin'] ?? '' ?>" minlength="11"
+                            maxlength="11" class="form-control" required>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <label for="">Date of Birth</label>
@@ -676,23 +884,28 @@ textarea {
                 <div class="nn row g-3">
                     <div class="col-md-6 col-sm-12">
                         <label for="">Name</label>
-                        <input type="text" class="form-control" name="nextof_name" id="">
+                        <input type="text" class="form-control" name="nextof_name"
+                            value="<?= $student_biodata['nextof_name'] ?? '' ?>" id="" required>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <label for="">Email</label>
-                        <input type="email" class="form-control" name="nextof_email" id="">
+                        <input type="email" class="form-control" name="nextof_email" id=""
+                            value="<?= $student_biodata['nextof_email'] ?? '' ?>" required>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <label for="">Relationship</label>
                         <input type="text" class="form-control" placeholder="e.g Father, Mother, Brother etc"
-                            name="nextof_relationship" id="">
+                            name="nextof_relationship" id=""
+                            value="<?= $student_biodata['nextof_relationship'] ?? '' ?>" required>
                     </div>
 
                     <div class="col-md-6 col-sm-12">
                         <label for="">Phone Number</label>
-                        <input type="text" class="form-control" name="nextof_phonenuber" id="">
+                        <input type="text" class="form-control" name="nextof_phonenuber"
+                            value="<?= $student_biodata['nextof_phonenuber'] ?? '' ?>" id="" required>
                     </div>
                 </div>
+
                 <div class="md-3 mt-3 float-end">
                     <input type="submit" name="student_personal_info" value="Save & Continue" class="btn"
                         style="color: white; font-size: 17px">

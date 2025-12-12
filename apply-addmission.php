@@ -63,7 +63,7 @@
                         <input type="submit" value="Verify Details" name="verify-student" class="btn">
                     </div>
                 </form>
-                <p class="texts">IF YOU HAVE VERIFIED YOUR ACCOUNT, <a href="addmision/candidate-login">CLICK HERE TO PROCEED TO LOGIN</a>
+                <p class="texts">IF YOU HAVE VERIFIED YOUR ACCOUNT, <a href="student/candidate-login">CLICK HERE TO PROCEED TO LOGIN</a>
                 </p>
             </div>
         </div>

@@ -10,21 +10,21 @@
                     <div class="carousel-item active">
                     <img src="./img/course/Public-Health-Nursing.jpg" class="d-block w-100" alt="...">
                     <div class="content-home">
-                        <h4 class="title-home">The Best Poly School of Health & Technology</h4>
+                        <h4 class="title-home">The Best College of Health & Technology</h4>
                         <p style="">Empowering students through innovative programs in medicine, health care, and advanced technology, designed for real-world success.</p>
                     </div>
                 </div>
                     <div class="carousel-item">
                         <img src="./img/banner/banner2.jpg" class="d-block w-100" alt="...">
                          <div class="content-home">
-                            <h4 class="title-home">Polytechnic of Health & Innovation</h4>
+                            <h4 class="title-home">Monotechnic of Health & Innovation</h4>
                             <p>Shaping the next generation of leaders in medicine, healthcare, and technology through practical learning and modern education.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="./img/banner/b2.jpg" class="d-block w-100" alt="...">
                          <div class="content-home">
-                            <h4 class="title-home">Innovative Poly College</h4>
+                            <h4 class="title-home">Innovative Moly College</h4>
                             <p>A forward-thinking school focused on health sciences, medical studies, and technology, empowering students to excel in a rapidly evolving world.</p>
                         <div class="menu-btn" id="menu-btn">
              <i class="ri-menu-line"></i>
@@ -53,7 +53,7 @@
                     <h2 class="header-title mb-3">About Us</h2>
                     <p class="about-text">
                         Adebola Excellent College of Health Sciences and Technology is a giant private College in Bode- Osi, Iwo, Ola 
-                        Oluwa Local Government, Osun State, Nigeria. It's known as AECOHTECH. It's one of the best textiary institution 
+                        Oluwa Local Government, Osun State, Nigeria. It's known as AECOHTECH. It's one of the best tertiary institution 
                         in Nigeria. It is an Healthcare Professional institution that innovate educate and Heal. It was founded  in 2024.
     
                     </p>
@@ -220,7 +220,7 @@
         </section> -->
 
         <section class="section addmission bg-white">
-            <p class="addmission-header">Addmission in Progress</p>
+            <p class="addmission-header">Admission in Progress</p>
             <p class="add-text text-center" style="color: purple; font-size: 12px;">EXCELLENT COLLEGE OF HEALTH SCIENCES AND TECHNOLOGY ADMISSION OPEN FOR 2025-2026 </p>
             <div class="addmission-body">
                 <p class="text-center">

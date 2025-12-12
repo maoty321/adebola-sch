@@ -6,11 +6,12 @@
 <div class="intro-box bg-white p-3 mt-3">
     <div class="intro">
         <p class="name"><?php echo $student_details['first_name'].' '.$student_details['middlename'].' '.$student_details['surname']. ''?></p>
-        <p class="dep">🎓 <?php echo $student_details['department']?> | <?php echo $student_details['application_number']?></p>
+        <p class="dep">🎓 <?php echo $fetch_department['department_name']?> | <?php echo $student_details['application_number']?></p>
+        <p class="dep">📕 <?php echo $student_details['level_type']?> Student`s | Level  <strong>O<?php echo $student_details['level']?></strong>  </p>
         <p class="dep">🏫 Adebola Excellent College of Health Sciences and Technology</p>
     </div>
     <div class="level">
-        <span class="badge bg-success">Applicant</span>
+        <span class="badge bg-success"><?= $student_details['role']?></span>
     </div>
 </div>
 

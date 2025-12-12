@@ -1,7 +1,7 @@
   <header>
       <div class="humb" id="humb">
-          <li><a href="">Change Password</a></li>
-          <li><a href="">Logout</a></li>
+          <li><a href="change-password">Change Password</a></li>
+          <li><a href="../logout">Logout</a></li>
       </div>
       <div class="logo">
           <div class="log-img">

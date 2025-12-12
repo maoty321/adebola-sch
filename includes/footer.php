@@ -6,8 +6,7 @@
                 <img src="img/logo/log.jpg" alt="Logo" class="footer-logo mb-3">
                 <p>
                     <strong class="footer-heading">AECHST</strong>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas error quos in sequi ducimus facilis
-                    veniam modi iusto. Nobis.</p>.
+                <p style="font-size: 13px">Adebola Excellent College of Health Sciences and Technology is a giant private College in Bode- Osi, Iwo, Ola Oluwa Local Government, Osun State, Nigeria. It's known as AECOHTECH. It's one of the best textiary institution in Nigeria. </p>.
                 </p>
             </div>
 
